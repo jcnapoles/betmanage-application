@@ -50,6 +50,18 @@ public class CacheConfiguration {
             createCache(cm, com.betpreview.betmanage.domain.User.class.getName());
             createCache(cm, com.betpreview.betmanage.domain.Authority.class.getName());
             createCache(cm, com.betpreview.betmanage.domain.User.class.getName() + ".authorities");
+            createCache(cm, com.betpreview.betmanage.domain.Region.class.getName());
+            createCache(cm, com.betpreview.betmanage.domain.Country.class.getName());
+            createCache(cm, com.betpreview.betmanage.domain.Location.class.getName());
+            createCache(cm, com.betpreview.betmanage.domain.Department.class.getName());
+            createCache(cm, com.betpreview.betmanage.domain.Department.class.getName() + ".employees");
+            createCache(cm, com.betpreview.betmanage.domain.Task.class.getName());
+            createCache(cm, com.betpreview.betmanage.domain.Task.class.getName() + ".jobs");
+            createCache(cm, com.betpreview.betmanage.domain.Employee.class.getName());
+            createCache(cm, com.betpreview.betmanage.domain.Employee.class.getName() + ".jobs");
+            createCache(cm, com.betpreview.betmanage.domain.Job.class.getName());
+            createCache(cm, com.betpreview.betmanage.domain.Job.class.getName() + ".tasks");
+            createCache(cm, com.betpreview.betmanage.domain.JobHistory.class.getName());
             // jhipster-needle-ehcache-add-entry
         };
     }
