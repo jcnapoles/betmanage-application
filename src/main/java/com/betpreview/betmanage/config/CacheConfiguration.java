@@ -50,6 +50,21 @@ public class CacheConfiguration {
             createCache(cm, com.betpreview.betmanage.domain.User.class.getName());
             createCache(cm, com.betpreview.betmanage.domain.Authority.class.getName());
             createCache(cm, com.betpreview.betmanage.domain.User.class.getName() + ".authorities");
+            createCache(cm, com.betpreview.betmanage.domain.Competition.class.getName());
+            createCache(cm, com.betpreview.betmanage.domain.Competition.class.getName() + ".teams");
+            createCache(cm, com.betpreview.betmanage.domain.Country.class.getName());
+            createCache(cm, com.betpreview.betmanage.domain.MatchPreview.class.getName());
+            createCache(cm, com.betpreview.betmanage.domain.MatchPreview.class.getName() + ".titles");
+            createCache(cm, com.betpreview.betmanage.domain.MatchPreview.class.getName() + ".paragraphs");
+            createCache(cm, com.betpreview.betmanage.domain.MatchPreview.class.getName() + ".teams");
+            createCache(cm, com.betpreview.betmanage.domain.Paragraphs.class.getName());
+            createCache(cm, com.betpreview.betmanage.domain.SocialMedia.class.getName());
+            createCache(cm, com.betpreview.betmanage.domain.Sport.class.getName());
+            createCache(cm, com.betpreview.betmanage.domain.Sport.class.getName() + ".competitions");
+            createCache(cm, com.betpreview.betmanage.domain.Team.class.getName());
+            createCache(cm, com.betpreview.betmanage.domain.Team.class.getName() + ".socialMedias");
+            createCache(cm, com.betpreview.betmanage.domain.Team.class.getName() + ".matchPreviews");
+            createCache(cm, com.betpreview.betmanage.domain.Title.class.getName());
             // jhipster-needle-ehcache-add-entry
         };
     }
