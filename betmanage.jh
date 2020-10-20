@@ -1,0 +1,110 @@
+
+entity Competition {
+	competitionName String required,
+    competitionLogo Blob,
+    isCup Boolean,
+    active Boolean,
+    type TypeCompetition,
+    sportscribeId Integer,
+    
+}
+
+entity Country {
+	countryName String required
+}
+
+entity MatchPreview {
+	fixtureId Integer required, 
+    blurbFull String,
+    hometeamId Integer,
+    visitorteamId Integer,
+    hometeamName String,
+    visitorteamName String,
+    leagueId Integer,
+    league String,
+    formationImg String,
+    fixtureImg String
+}
+
+entity Paragraphs {
+	content String
+}
+
+/**
+ * Task entity.
+ * @author The JHipster team.
+ */
+entity SocialMedia {
+	tag String,
+	platform PlatformEnum
+}
+
+/**
+ * The Sport entity.
+ */
+entity Sport {	
+	sportName String required	
+}
+
+entity Team {
+	teamName String required,
+    shortCode String,
+    isNationalTeam Boolean,
+    teamLogo Blob,
+    teamId Integer
+    
+}
+
+entity Title {
+	titleText String
+    
+}
+
+enum PlatformEnum {
+    TWITTER, INSTAGRAM
+}
+
+enum TypeCompetition {
+    DOMESTIC, DOMESTIC_CUP, CUP_INTERNATIONAL
+}
+
+relationship OneToOne {
+	Team{country} to Country
+}
+
+relationship OneToOne {
+	MatchPreview{country} to Country
+}
+
+relationship OneToOne {
+	Competition{country} to Country,
+	
+}
+relationship ManyToMany {
+	Team to MatchPreview,
+	
+}
+
+// defining multiple OneToMany relationships with comments
+relationship OneToMany {
+	Sport to Competition{sport},
+    Competition to Team{competition},
+    Team to SocialMedia{team},
+    MatchPreview to Title{quickItems},
+    MatchPreview to Paragraphs{blurbSplit}
+	
+}
+
+
+// Set pagination options
+paginate MatchPreview, Team with infinite-scroll
+paginate Competition with pagination
+
+// Use Data Transfer Objects (DTO)
+// dto * with mapstruct
+
+// Set service options to all except few
+service all with serviceImpl
+
+// Set an angular suffix
+// angularSuffix * with mySuffix
